@@ -27,8 +27,6 @@ RUN dpkg --add-architecture i386 && \
 	gnupg \
 	ca-certificates \
 	wget && \
-	apt-key adv --keyserver keyserver.ubuntu.com ${HTTPPROXY:+--keyserver-options "http-proxy=$HTTPPROXY"} --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF && \
-#								PROXY INJECT        ^^^^^^^^^^^ \
 	apt-get -y update && \
 	apt-get install --no-install-recommends -y \
 	autoconf \
@@ -41,7 +39,6 @@ RUN dpkg --add-architecture i386 && \
 	debianutils \
 	dfu-util \
 	diffstat \
-#	doxygen \
 	file \
 	gawk \
 	gcc-multilib \
@@ -87,16 +84,6 @@ RUN useradd -mG plugdev user \
 #ARM gcc @  https://developer.arm.com/-/media/Files/downloads/gnu-a/8.3-2019.03/binrel/gcc-arm-8.3-2019.03-x86_64-arm-linux-gnueabihf.tar.xz
 RUN wget -q https://developer.arm.com/-/media/Files/downloads/gnu-a/8.3-2019.03/binrel/${ARM_GCC}.tar.bz2 && tar xf ${ARM_GCC}.tar.bz2 && \
         rm -f ${ARM_GCC}.tar.bz2 && mkdir -p /opt/toolchains && mv ${ARM_GCC} /opt/toolchains/${ARM_GCC}
-
-#BSP does NOT belong in the SDK docker... put in the bcbprj!
-#TI AM335x BSP binary http://software-dl.ti.com/processor-sdk-linux/esd/AM335X/latest/exports/am335x-evm-linux-sdk-bin-06.00.00.07.tar.xz
-#RUN wget -q http://software-dl.ti.com/processor-sdk-linux/esd/AM335X/latest/exports/am335x-evm-linux-sdk-bin-06.00.00.07.tar.xz && \
-#	mkdir -p /opt/sdks && \
-#	tar xf am335x-evm-linux-sdk-bin-06.00.00.07.tar.xz --directory /opt/sdks && \
-#	rm -f /opt/sdks/ti-processor-sdk-linux-am335x-evm-bin-06.00.00.07/filesystem/arago-tiny* && \
-#	rm -f /opt/sdks/ti-processor-sdk-linux-am335x-evm-bin-06.00.00.07/filesystem/tisdk* && \
-#	rm -f /opt/sdks/ti-processor-sdk-linux-am335x-evm-bin-06.00.00.07/filesystem/*.ubi && \
-#	rm -f am335x-evm-linux-sdk-bin-06.00.00.07.tar.xz
 
 ADD ./src /home/user
 RUN chown -R user: /home/user
