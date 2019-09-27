@@ -1,8 +1,0 @@
-<com.dabsquared.gitlabjenkins.connection.GitLabApiTokenImpl plugin="gitlab-plugin@1.5.12">
-  <scope>GLOBAL</scope>
-  <id>e96b1ff4-9ce2-4f46-aeb3-6e1a7612943b</id>
-  <description>asdfasdf</description>
-  <apiToken>
-    <secret-redacted/>
-  </apiToken>
-</com.dabsquared.gitlabjenkins.connection.GitLabApiTokenImpl>
