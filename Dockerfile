@@ -110,6 +110,10 @@ ENV PATH=/opt/toolchains/$ARM_GCC/bin:$PATH \
 	PS1="\[\e[32;1m\][bcbuildr]\[\e[0m\]:\w> " \
 	CROSS_COMPILE=$TOOLCHAIN_PREFIX
 
+#TODO: move these into main install flow
+RUN apt-get -y update && apt-get install --no-install-recommends -y \
+	bison flex bc
+
 CMD ["/workdir/bcbuild.sh"]
 USER user
 WORKDIR /workdir
