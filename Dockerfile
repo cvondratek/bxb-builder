@@ -112,7 +112,7 @@ ENV PATH=/opt/toolchains/$ARM_GCC/bin:$PATH \
 
 #TODO: move these into main install flow
 RUN apt-get -y update && apt-get install --no-install-recommends -y \
-	bison flex bc
+	bison flex bc fakeroot squashfs-tools libncurses-dev libssl-dev kmod
 
 CMD ["/workdir/bcbuild.sh"]
 USER user

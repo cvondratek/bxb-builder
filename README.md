@@ -1,8 +1,12 @@
 # bcbuildr - containerized flash-image automation
 
+## Purpose
+bcbuildr was created to automate the flash-image generation for read-only & stateless embedded Linux systems booting from 16MB NOR flash. While many build
+automation tools like yocto & buildroot exist, none provide both the level of customization required for rapid prototyping AND a good-base for long-term
+support of a product. User-defined bcb project structures define bin layers that can be anything from a full-blown openembedded/yocto build to a simple blob dd copy.
+
 ## Status
 Work in progress. 
-Configuration assumes 10.10.10.1 for proxy & other services.
 
 ## Build system requirements
 
