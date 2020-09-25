@@ -21,11 +21,13 @@ Network access required for container build. Can be run air-gapped once built.
 
 ## Build Process
 
-### 1. Get bcbuildr
+### 1. Get bcbuildr & build
 git clone -b <arch_branch> https://github.com/cvondratek/bcbuildr
-### 2. Build container image
 ./build.sh
-### 3. Get a bcbuildr project (example bcbprj)
+## --OR--
+docker pull 10.10.10.1:5000/bcbuildr:latest
+
+### 2. Get a bcbuildr project (example bcbprj)
 git clone -b <arch_branch> https://github.com/cvondratek/usb-boot-adapter.bcbprj
 ln -s usb-boot-adapter.bcbprj workdir
 ### 4. Run the container to start the build
