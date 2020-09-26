@@ -6,7 +6,10 @@ automation tools like yocto & buildroot exist, none provide both the level of cu
 support of a product. User-defined bcb project structures define bin layers that can be anything from a full-blown openembedded/yocto build to a simple blob dd copy.
 
 ## Status
-Work in progress. 
+* Everything builds.
+* U-boot works but is still mostly stock. am335x_evm_bcb_defconfig doesn't support reading anything into 0x82000000... WIP 
+* Kernel isn't setup for squashfs in RAM - suspect yocto needs to be kicked to rebuild with new defconfig
+	-->did confirm that badgR kernel (hib0x, etc) boots so this is only kernel config issue
 
 ## Build system requirements
 
@@ -29,7 +32,11 @@ docker pull 10.10.10.1:5000/bcbuildr:latest
 
 ### 2. Get a bcbuildr project (example bcbprj)
 git clone -b <arch_branch> https://github.com/cvondratek/usb-boot-adapter.bcbprj
+git submodule update --init < all submodules>
+
+### 3. Link a project to workdir to "activate" it. 
 ln -s usb-boot-adapter.bcbprj workdir
+
 ### 4. Run the container to start the build
 screen
 ./run.sh
