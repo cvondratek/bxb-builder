@@ -1,2 +1,2 @@
 #!/bin/bash
-docker build --build-arg HTTPPROXY=$http_proxy --build-arg HTTPSPROXY=$https_proxy --build-arg NOPROXY=$no_proxy -t 10.10.10.1:5000/bcbuildr . 
+docker build --build-arg HTTPPROXY=$http_proxy --build-arg HTTPSPROXY=$https_proxy --build-arg NOPROXY=$no_proxy -t bxb-builder:latest .
