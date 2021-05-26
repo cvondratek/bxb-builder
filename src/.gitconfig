@@ -1,9 +1,0 @@
-[user]
-	email = user@bcbuildr
-	name = user
-[http]
-	proxy = http://10.10.10.1:3128
-[https]
-	proxy = http://10.10.10.1:3128
-[core]
-	gitProxy = /home/user/gitproxy
